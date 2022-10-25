@@ -4,6 +4,31 @@
         <name>API</name>
     </assembly>
     <members>
+        <member name="M:API.Controllers.ClientsController.GetAll">
+            <summary>
+            Buscar todos os clientes
+            </summary>
+        </member>
+        <member name="M:API.Controllers.ClientsController.GetToId(System.String,System.String)">
+            <summary>
+            Buscar cliente com e-mail e senha
+            </summary>
+        </member>
+        <member name="M:API.Controllers.ClientsController.PostCreateClient(API.Models.CadastroClientInputModel)">
+            <summary>
+            Cadastrar cliente
+            </summary>
+        </member>
+        <member name="M:API.Controllers.ClientsController.DeleteClient(System.String)">
+            <summary>
+            Deletar cliente
+            </summary>
+        </member>
+        <member name="M:API.Controllers.ClientsController.UpdateClient(System.String,API.Models.CadastroClientInputModel)">
+            <summary>
+            Modificar alguma informação do cliente
+            </summary>
+        </member>
         <member name="M:API.Controllers.WeatherForecastController.Get">
             <summary>
             Message EndPoint
