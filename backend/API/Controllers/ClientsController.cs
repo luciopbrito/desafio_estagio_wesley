@@ -21,6 +21,9 @@ namespace API.Controllers
             _db = db;
         }
 
+        /// <summary>
+        /// Buscar todos os clientes
+        /// </summary>
         // GET api/clients/
         [HttpGet]
         public IActionResult GetAll()
@@ -29,6 +32,9 @@ namespace API.Controllers
             return Ok(clients);
         }
 
+        /// <summary>
+        /// Buscar cliente com e-mail e senha
+        /// </summary>
         // GET api/clients/email&password
         [HttpGet("{email}&{password}")]
         public IActionResult GetToId(string email, string password)
@@ -52,6 +58,9 @@ namespace API.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastrar cliente
+        /// </summary>
         // POST api/clients/
         [HttpPost]
         public IActionResult PostCreateClient(CadastroClientInputModel model)
@@ -74,9 +83,12 @@ namespace API.Controllers
 
             }
 
-            return Ok();
+            return NoContent();
         }
 
+        /// <summary>
+        /// Deletar cliente
+        /// </summary>
         // DELETE api/clients/id
         [HttpDelete("{id}")]
         public IActionResult DeleteClient(string id)
@@ -85,7 +97,7 @@ namespace API.Controllers
                 .Client?
                 .SingleOrDefault(o => o.IdClient == id);
 
-            if (ClientToDelete == null) 
+            if (ClientToDelete == null)
             {
                 return NotFound();
             }
@@ -94,8 +106,11 @@ namespace API.Controllers
             _db.SaveChanges();
 
             return NoContent();
-        } 
+        }
 
+        /// <summary>
+        /// Modificar alguma informação do cliente
+        /// </summary>
         // PUT api/clients/
         [HttpPut("{id}")]
         public IActionResult UpdateClient(string id, CadastroClientInputModel model)

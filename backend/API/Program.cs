@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("");
+var connectionString = builder.Configuration.GetConnectionString("APIEstagio");
 
 builder.Services.AddDbContext<APIDbContext>(o => {
-    o.UseInMemoryDatabase("DesafioAPI");
+    o.UseSqlServer(connectionString);
 });
 
 builder.Services.AddControllers();
@@ -17,7 +17,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo
+    options.SwaggerDoc("v1", new OpenApiInfo    
     {
         Version = "v1",
         Title = "Desafio Estágio API",
